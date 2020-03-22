@@ -5,7 +5,7 @@
 /* variables */
 
 /* colors */
-$black: #222;
+$black: #242A2D;
 $white: #fff;
 $accent: #ff8f00;
 $grey: #777;
@@ -26,6 +26,7 @@ html {
     background: $white;
     color: $black;
     font-weight: $light;
+
     a {
       font-weight: $regular;
       color: $accent;
@@ -152,15 +153,37 @@ html {
         .title {
           font-size: 1.5em;
         }
+
+        #github-repositories {
+          li {
+            margin-bottom: 10px;
+            a {
+              span {
+                display: block;
+                &.name {
+                  font-weight: $bold;
+                }
+                &.desc {
+                  font-weight: $light;
+                  color: $black;
+                }
+              }
+            }            
+          }
+        }
       }
     }
 
     footer {
-      background: #000000;
+      background: #1B1D24;
       padding: 20px 0;
       text-align: center;
       color: $white;
       font-size: 12px;
+
+      i {
+        color: $accent;
+      }
 
       .theme-swicher {
         text-align: center;
@@ -182,9 +205,23 @@ html {
       }
     }
 
+    transition: all 0.3s;
+
     &.dark {
       color: $white;
       background: $black;
+
+      #github-repositories {
+        li {
+          a {
+            span {
+              &.desc {
+                color: $white;
+              }
+            }
+          }            
+        }
+      }
 
       .socials {
         ul {
