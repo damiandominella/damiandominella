@@ -103,7 +103,7 @@
 
     <div class="container">
       <header>
-        <img src="img/pic.jpg" />
+        <img src="img/me.png" />
         <h1 class="title">Damian Dominella</h1>
         <h3 class="subtitle">Developer</h3>
 
@@ -143,6 +143,22 @@
               </li>
           </ul>
         </section>
+
+        <section class="colors">
+          <p>I'm just trying to make a static website more interactive... play with these colors</p>
+          <div class="color" onclick="onColorToggle('#2196F3')" style="background: #2196F3"></div>
+          <div class="color" onclick="onColorToggle('#673AB7')" style="background: #673AB7"></div>
+          <div class="color" onclick="onColorToggle('#E91E63')" style="background: #E91E63"></div>
+          <div class="color" onclick="onColorToggle('#FFC107')" style="background: #FFC107"></div>
+          <div class="color" onclick="onColorToggle('#4CAF50')" style="background: #4CAF50"></div>
+          <div class="color" onclick="onColorToggle('#ff8f00')" style="background: #ff8f00"></div>
+        </section>
+
+        <div class="theme-swicher">
+          <p>Or change the theme</p>
+          <div id="light" onclick="onThemeToggle('light')"></div>
+          <div id="dark" onclick="onThemeToggle('dark')"></div>
+        </div>
       </header>
 
       <main>
@@ -250,17 +266,27 @@
         <article>
           <h3 class="title">Published projects</h3>
           <p>
-            TODO: build cool stuff and publish it here
+            In my free time I also like to work as a freelance developer and build every kind of application or website, for me or for customers
+
+            <div id="projects">
+              <div class="project">
+                <a href="https://personnemag.com" target="_blank">
+                  <div class="image" style="background-image: url('img/projects/personne.png');">
+                  </div>
+                </a>
+                <div class="info">
+                  <p class="title">Personne</p>
+                  <p class="description">A website for a cool magazine based in Milan</p>
+                  <a href="https://personnemag.com" target="_blank" class="link">personnemag.com</a>
+                </div>
+              </div>
+            </div>
           </p>
         </article>
       </main>
     </div>
 
     <footer>
-      <div class="theme-swicher">
-        <div id="light" onclick="onThemeToggle('light')"></div>
-        <div id="dark" onclick="onThemeToggle('dark')"></div>
-      </div>
       Made with <i class="fas fa-heart"></i> by <strong>me</strong> (obviously)
     </footer>
 

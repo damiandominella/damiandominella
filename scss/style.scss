@@ -3,11 +3,14 @@
 @import "./mixins/responsive";
 
 /* variables */
+:root {
+  --accent: #ff8f00;
+}
 
 /* colors */
-$black: #242A2D;
+$black: #1d1e1f;
 $white: #fff;
-$accent: #ff8f00;
+// $accent: #ff8f00;
 $grey: #777;
 
 /* weights */
@@ -29,8 +32,9 @@ html {
 
     a {
       font-weight: $regular;
-      color: $accent;
+      color: var(--accent);
       text-decoration: none;
+      transition: color .5s;
     }
 
     strong {
@@ -38,7 +42,7 @@ html {
     }
 
     .accent {
-      color: $accent;
+      color: var(--accent);
     }
 
     h1,
@@ -74,7 +78,8 @@ html {
 
       #progress-bar {
         height: 5px;
-        background: #ff8f00;
+        background-color: var(--accent);
+        transition: background-color .5s;
         width: 0%;
       }
     }
@@ -82,11 +87,14 @@ html {
     header {
       text-align: center;
 
+      
       img {
         margin-top: 30px;
         border-radius: 8px;
         max-width: 100%;
         width: 250px;
+        background-color: var(--accent);
+        transition: background-color .5s;
       }
 
       .title {
@@ -122,8 +130,10 @@ html {
             > a {
               width: $size;
               height: $size;
-              background: $accent;
-              border: 1px solid $accent;
+              background: var(--accent);
+              border: 1px solid;
+              border-color: var(--accent);
+              transition: all .5s;
               color: $white;
               border-radius: 50%;
               font-size: 20px;
@@ -138,9 +148,41 @@ html {
             &:hover {
               > a {
                 background: $white;
-                color: $accent;
+                color: var(--accent);
               }
             }
+          }
+        }
+      }
+
+      .colors {
+        text-align: center;
+        margin-bottom: 10px;
+        > div {
+          display: inline-block;
+          width: 25px;
+          height: 25px;
+          border-radius: 50%;
+          border: 1px solid $grey;
+          cursor: pointer;
+        }
+      }
+
+      .theme-swicher {
+        text-align: center;
+        margin-bottom: 10px;
+        > div {
+          display: inline-block;
+          width: 25px;
+          height: 25px;
+          border-radius: 50%;
+          border: 1px solid $grey;
+          cursor: pointer;
+          &#light {
+            background: $white;
+          }
+          &#dark {
+            background: $black;
           }
         }
       }
@@ -168,41 +210,61 @@ html {
                   color: $black;
                 }
               }
-            }            
+            }
+          }
+        }
+
+        #projects {
+          display: grid;
+          grid-template-columns: 1fr 1fr 1fr;
+          column-gap: 20px;
+          row-gap: 20px;
+
+          @media screen and (max-width: 991px) {
+            grid-template-columns: 1fr 1fr;
+          }
+
+          @media screen and (max-width: 767px) {
+            grid-template-columns: 1fr;
+          }
+          .project {
+            a {
+              div.image {
+                width: 100%;
+                padding-top: 50%;
+                background-size: cover;
+                background-position: center;
+                background-repeat: no-repeat;
+                border: 1px solid var(--accent);
+              }
+            }
+            .info {
+              .title {
+                font-size: 18px;
+                font-weight: $bold;
+                margin: 5px 0;
+              }
+              .description {
+                margin: 0;
+              }
+            }
           }
         }
       }
     }
 
     footer {
-      background: #1B1D24;
+      background: #1b1d24;
       padding: 20px 0;
       text-align: center;
       color: $white;
       font-size: 12px;
 
       i {
-        color: $accent;
+        color: var(--accent);
+        transition: color .5s;
       }
 
-      .theme-swicher {
-        text-align: center;
-        margin-bottom: 10px;
-        > div {
-          display: inline-block;
-          width: 25px;
-          height: 25px;
-          border-radius: 50%;
-          border: 1px solid $grey;
-          cursor: pointer;
-          &#light {
-            background: $white;
-          }
-          &#dark {
-            background: $black;
-          }
-        }
-      }
     }
 
     transition: all 0.3s;
@@ -219,7 +281,7 @@ html {
                 color: $white;
               }
             }
-          }            
+          }
         }
       }
 
@@ -228,13 +290,13 @@ html {
           > li {
             > a {
               background: $black;
-              border-color: $accent;
-              color: $accent;
+              border-color: var(--accent);
+              color: var(--accent);
             }
 
             &:hover {
               > a {
-                background: $accent;
+                background: var(--accent);
                 color: $black;
               }
             }
